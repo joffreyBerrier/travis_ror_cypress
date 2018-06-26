@@ -17,8 +17,8 @@ install:
   - npm install
 before_script:
   - rails server &
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database name_of_bdd;' -U postgres
   - rails db:migrate
-  - RAILS_ENV=test bundle exec rake db:seed
+  - RAILS_ENV=name_of_env bundle exec rake db:seed
 script:
   - $(npm bin)/cypress run
