@@ -10,15 +10,13 @@ cache:
   yarn: true
   bundler: true
   directories:
-    - ~/.npm
     - ~/.cache
-    - "node_modules"
 install:
-  - npm install
+  - yarn add cypress
 before_script:
   - rails server &
-  - psql -c 'create database name_of_bdd;' -U postgres
+  - psql -c 'create database travis_ci_test;' -U postgres
   - rails db:migrate
-  - RAILS_ENV=name_of_env bundle exec rake db:seed
+  - RAILS_ENV=test bundle exec rake db:seed
 script:
-  - $(npm bin)/cypress run
+  - $(yarn bin)/cypress run
