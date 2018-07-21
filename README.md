@@ -4,6 +4,9 @@
 3. Postgresql 9.4
 4. Cypress
 
+### Travis.yml
+
+```yml
 language: node_js
 node_js:
   - 9.11.2                                                      # choose your version
@@ -33,3 +36,5 @@ before_script:
 script:
   - $(yarn bin)/cypress run --record                            # launch your frontend test with Cypress
   - bundle exec rspec spec/controllers spec/models spec/jobs    # launch your backend test
+
+```
